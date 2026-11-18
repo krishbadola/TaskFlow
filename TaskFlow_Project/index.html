@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TaskFlow | Personal Task Manager</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="brand"><span class="brand-icon">✓</span> TaskFlow</div>
+      <p class="side-label">WORKSPACE</p>
+      <button class="nav active" data-filter="all">▦ <span>All tasks</span></button>
+      <button class="nav" data-filter="pending">◷ <span>Pending</span></button>
+      <button class="nav" data-filter="completed">✓ <span>Completed</span></button>
+      <div class="sidebar-note">
+        <div class="note-icon">✦</div>
+        <strong>Stay focused.</strong>
+        <p>Small steps every day lead to big results.</p>
+      </div>
+      <p class="sidebar-footer">Your personal productivity space</p>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">YOUR WORKSPACE</p>
+          <h1>Good work starts here.</h1>
+          <p class="subheading">Organize your day, one task at a time.</p>
+        </div>
+        <div class="date-chip" id="todayDate"></div>
+      </header>
+
+      <section class="stats">
+        <article class="stat-card"><span class="stat-icon purple">▦</span><p>Total tasks</p><strong id="totalCount">0</strong></article>
+        <article class="stat-card"><span class="stat-icon orange">◷</span><p>Pending</p><strong id="pendingCount">0</strong></article>
+        <article class="stat-card"><span class="stat-icon green">✓</span><p>Completed</p><strong id="completedCount">0</strong></article>
+      </section>
+
+      <section class="content-card">
+        <div class="section-heading">
+          <div><h2>My tasks</h2><p>Keep track of what needs to get done.</p></div>
+          <button class="primary-btn" id="openFormBtn">＋ Add task</button>
+        </div>
+
+        <form id="taskForm" class="task-form hidden">
+          <div class="form-top"><h3 id="formTitle">Create a task</h3><button type="button" class="close-btn" id="closeFormBtn">×</button></div>
+          <label for="taskTitle">Task name</label>
+          <input id="taskTitle" type="text" maxlength="80" placeholder="e.g. Complete portfolio website" required>
+          <div class="form-row">
+            <div><label for="taskCategory">Category</label>
+              <select id="taskCategory"><option>Personal</option><option>College</option><option>Work</option><option>Learning</option></select>
+            </div>
+            <div><label for="taskDue">Due date</label><input id="taskDue" type="date"></div>
+          </div>
+          <div class="form-actions"><button type="button" class="secondary-btn" id="cancelBtn">Cancel</button><button class="primary-btn" type="submit">Save task</button></div>
+        </form>
+
+        <div class="toolbar">
+          <div class="search-box">⌕ <input id="searchInput" type="search" placeholder="Search tasks..."></div>
+          <select id="filterSelect" aria-label="Filter tasks"><option value="all">All tasks</option><option value="pending">Pending</option><option value="completed">Completed</option></select>
+        </div>
+        <div id="taskList" class="task-list"></div>
+        <div id="emptyState" class="empty-state">
+          <div class="empty-icon">✦</div><h3>No tasks yet</h3><p>Add your first task and make today productive.</p>
+          <button class="secondary-btn" id="emptyAddBtn">＋ Create your first task</button>
+        </div>
+      </section>
+      <footer>Built with HTML, CSS and JavaScript <span>•</span> TaskFlow</footer>
+    </main>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
